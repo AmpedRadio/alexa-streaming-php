@@ -1,0 +1,28 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "your station name here",
+      "intents": [
+        {
+          "intent": "PlayStream"
+        },
+        {
+          "intent": "AMAZON.PauseIntent"
+        },
+        {
+          "intent": "AMAZON.ResumeIntent"
+        },
+        {
+          "intent": "AMAZON.HelpIntent"
+        },
+        {
+          "intent": "AMAZON.StopIntent"
+        },
+        {
+          "intent": "AMAZON.CancelIntent"
+        }
+      ],
+      "types": []
+    }
+  }
+}

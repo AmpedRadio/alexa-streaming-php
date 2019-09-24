@@ -1,0 +1,38 @@
+{
+    "name": "ampedradio/alexa-streaming-php",
+    "type": "library",
+    "description": "Simple base package to create a streaming audio Alexa skill in PHP",
+    "keywords": ["alexa", "streaming", "audio"],
+    "homepage": "https://github.com/AmpedRadio/alexa-streaming-php",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Bill Condo",
+            "email": "billcondo@gmail.com",
+            "homepage": "https://amped.radio"
+        }
+    ],
+    "require": {
+        "php": "^7.2",
+        "ext-json": "*",
+        "vlucas/phpdotenv": "^3.6",
+        "nomisoft/php-alexa-helper": "^1.2",
+        "ramsey/uuid": "^3.8"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "autoload": {
+        "psr-4": {
+            "AmpedRadio\\AlexaStreamingPHP\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "AmpedRadio\\AlexaStreamingPHP\\Test\\": "tests/"
+        }
+    },
+    "support": {
+        "issues": "https://github.com/AmpedRadio/alexa-streaming-php/issues"
+    }
+}
