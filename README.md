@@ -7,7 +7,7 @@
 
 # Alexa Streaming in PHP 
 
-This repository ...
+This library provides a simple way to create a streaming audio skill for the [Amazon Alexa](http://developer.amazon.com/alexa) platform. 
 
 ## Installation
 
@@ -15,4 +15,31 @@ The preferred method of installation is via [Packagist](https://packagist.org) a
 
 ```bash
 composer require ampedradio/alexa-streaming-php
+```
+
+## Alexa Skill Setup
+
+Coming soon. Stay tuned.
+
+## Example Usage
+
+```php
+use AmpedRadio\AlexaStreamingPHP\AlexaStreaming;
+use AmpedRadio\AlexaStreamingPHP\AlexaStreamingConfig;
+use Ramsey\Uuid\Uuid;
+
+$config = new AlexaStreamingConfig();
+$config->app_id = 'amzn1.ask.skill.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx';
+$config->stream_url = 'https://<stream-url>';
+$config->title = 'Amped Radio';
+$config->subtitle = 'Fueling The Original Social Network';
+$config->art = 'https://<domain>/art.png';
+$config->background_image = 'https://<domain>/background.png';
+$config->stream_token = Uuid::uuid4();
+
+$alexa = new AlexaStreaming($config);
+$response = $alexa->process();
+
+header('Content-Type: application/json');
+echo json_encode($response);
 ```
