@@ -20,5 +20,6 @@ install:
 
 script:
   - composer run lint
+  - composer run phpcs
   - composer run phpstan
   - composer run phpunit
