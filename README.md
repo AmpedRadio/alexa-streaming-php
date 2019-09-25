@@ -38,7 +38,7 @@ $config->background_image = 'https://<domain>/background.png';
 $config->stream_token = Uuid::uuid4();
 
 $alexa = new AlexaStreaming($config);
-$response = $alexa->process();
+$response = $alexa->execute();
 
 header('Content-Type: application/json');
 echo json_encode($response);

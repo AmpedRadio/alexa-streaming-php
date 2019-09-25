@@ -12,16 +12,24 @@ use \Nomisoft\Alexa\Response\AlexaResponse;
 use \Nomisoft\Alexa\Request\RequestValidator;
 use Nomisoft\Alexa\Response\OutputSpeech;
 
+/**
+ * Class AlexaStreaming
+ */
 class AlexaStreaming
 {
+    /** @var AlexaStreamingConfig $config */
     public $config;
 
+    /** @var AlexaRequest $request */
     public $request;
 
+    /** @var AlexaResponse $response */
     public $response;
 
+    /** @var RequestValidator $validator */
     public $validator;
 
+    /** @var $is_valid_request */
     public $is_valid_request;
 
     /**
@@ -41,12 +49,16 @@ class AlexaStreaming
     }
 
     /**
-     * Process Alexa Request and provide a response
+     * Execute processing for Alexa Request and provide a response
      */
-    public function process()
+    public function execute()
     {
         if ($this->isValidRequest()) {
-            if ($this->request->getType() == 'IntentRequest') {
+            if ($this->request->getType() == 'LaunchRequest') {
+                // A LaunchRequest is an object that represents that a user made a
+                // request to an Alexa skill, but did not provide a specific intent.
+                $this->processLaunch();
+            } elseif ($this->request->getType() == 'IntentRequest') {
                 // IntentRequests are direct requests for actions by the Alexa user.
                 // Examples: Play, Pause, Stop, etc.
                 $this->processIntent($this->request);
@@ -88,6 +100,19 @@ class AlexaStreaming
         $this->is_valid_request = true;
 
         return $this->is_valid_request;
+    }
+
+    /**
+     * Process LaunchRequest
+     */
+    private function processLaunch()
+    {
+        $this->response->setDirectives([new AudioPlayerPlayDirective(
+            new AudioItem(
+                new Stream($this->config),
+                new Metadata($this->config)
+            )
+        )]);
     }
 
     /**
