@@ -17,3 +17,8 @@ before_install:
 
 install:
   - travis_retry composer install --no-interaction --prefer-dist
+
+script:
+  - composer run lint
+  - composer run phpstan
+  - composer run phpunit
