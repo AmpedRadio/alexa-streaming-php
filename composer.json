@@ -34,5 +34,8 @@
     },
     "support": {
         "issues": "https://github.com/AmpedRadio/alexa-streaming-php/issues"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^8.3"
     }
 }
