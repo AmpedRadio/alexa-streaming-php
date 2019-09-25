@@ -29,8 +29,8 @@ class AudioPlayerPlayDirective implements AudioPlayerDirectiveInterface
     /** @var string $playBehavior */
     public $playBehavior;
 
-    /** @var array $_playBehaviors */
-    private $_playBehaviors = [
+    /** @var array $playBehaviors */
+    private $playBehaviors = [
         'REPLACE_ALL',      // Immediately Plays
         'REPLACE_ENQUEUED', // Plays after the current track ends
         'ENQUEUE'           // Add to the end of the queue
@@ -45,7 +45,7 @@ class AudioPlayerPlayDirective implements AudioPlayerDirectiveInterface
     public function __construct(AudioItem $audioItem, string $playBehavior = 'REPLACE_ALL')
     {
         $this->audioItem = $audioItem;
-        $this->playBehavior = (in_array($playBehavior, $this->_playBehaviors)) ? $playBehavior : 'REPLACE_ALL';
+        $this->playBehavior = (in_array($playBehavior, $this->playBehaviors)) ? $playBehavior : 'REPLACE_ALL';
     }
 
     /**

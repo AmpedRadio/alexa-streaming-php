@@ -20,8 +20,8 @@ class AudioPlayerClearQueueDirective implements AudioPlayerDirectiveInterface
     /** @var string $clearBehavior */
     public $clearBehavior;
 
-    /** @var array $_clearBehaviors */
-    private $_clearBehaviors = [
+    /** @var array $clearBehaviors */
+    private $clearBehaviors = [
         'CLEAR_ENQUEUED',   // clears the queue and continues to play the currently playing stream
         'CLEAR_ALL'         // clears the entire playback queue and stops the currently playing
                             //     stream (if applicable).
@@ -34,7 +34,7 @@ class AudioPlayerClearQueueDirective implements AudioPlayerDirectiveInterface
      */
     public function __construct(string $clearBehavior = 'CLEAR_ALL')
     {
-        $this->clearBehavior = (in_array($clearBehavior, $this->_clearBehaviors)) ? $clearBehavior : 'CLEAR_ALL';
+        $this->clearBehavior = (in_array($clearBehavior, $this->clearBehaviors)) ? $clearBehavior : 'CLEAR_ALL';
     }
 
     /**

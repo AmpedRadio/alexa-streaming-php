@@ -49,17 +49,17 @@ class AlexaStreaming
             if ($this->request->getType() == 'IntentRequest') {
                 // IntentRequests are direct requests for actions by the Alexa user.
                 // Examples: Play, Pause, Stop, etc.
-                $this->_processIntent($this->request);
+                $this->processIntent($this->request);
             } elseif (strpos($this->request->getType(), 'AudioPlayer.') !== false) {
                 // Requests of the AudioPlayer.* type can be considered event notifications
                 // and make us aware of changes to the playback state.
                 // Examples: PlaybackStarted, PlaybackStopped, PlaybackFailed
-                $this->_processAudioPlayerEvent($this->request);
+                $this->processAudioPlayerEvent($this->request);
             } else {
-                $this->_setOutputSpeech("Sorry, we don't understand your request");
+                $this->setOutputSpeech("Sorry, we don't understand your request");
             }
         } else {
-            $this->_setOutputSpeech("Sorry, something went wrong with your request");
+            $this->setOutputSpeech("Sorry, something went wrong with your request");
         }
 
         return $this->response;
@@ -72,7 +72,7 @@ class AlexaStreaming
      */
     public function isValidRequest()
     {
-        return $this->_validateRequest();
+        return $this->validateRequest();
     }
 
     /**
@@ -80,7 +80,7 @@ class AlexaStreaming
      *
      * @return bool
      */
-    private function _validateRequest()
+    private function validateRequest()
     {
         if (!$this->validator->validate($this->config->getAppId())) {
             $this->is_valid_request = false;
@@ -95,7 +95,7 @@ class AlexaStreaming
      *
      * @throws \Exception
      */
-    private function _processIntent(AlexaRequest $request)
+    private function processIntent(AlexaRequest $request)
     {
         $intent = $request->getIntent();
         switch ($intent->name) {
@@ -121,10 +121,10 @@ class AlexaStreaming
             case 'AMAZON.ShuffleOffIntent':
             case 'AMAZON.ShuffleOnIntent':
             case 'AMAZON.StartOverIntent':
-                $this->_setOutputSpeech("Sorry, our stream doesn't support this feature");
+                $this->setOutputSpeech("Sorry, our stream doesn't support this feature");
                 break;
             default:
-                $this->_setOutputSpeech("Sorry, we don't understand your request");
+                $this->setOutputSpeech("Sorry, we don't understand your request");
                 break;
         }
     }
@@ -134,7 +134,7 @@ class AlexaStreaming
      *
      * @param string $message
      */
-    private function _setOutputSpeech(string $message)
+    private function setOutputSpeech(string $message)
     {
         $speech = new OutputSpeech();
         $speech->setText("Sorry, we don't understand your request");
@@ -146,7 +146,7 @@ class AlexaStreaming
      *
      * @param AlexaRequest $request
      */
-    private function _processAudioPlayerEvent(AlexaRequest $request)
+    private function processAudioPlayerEvent(AlexaRequest $request)
     {
         /** @todo Log Player Events */
     }
