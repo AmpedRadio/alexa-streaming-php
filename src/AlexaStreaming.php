@@ -29,7 +29,7 @@ class AlexaStreaming
     /** @var RequestValidator $validator */
     public $validator;
 
-    /** @var $is_valid_request */
+    /** @var bool|null $is_valid_request */
     public $is_valid_request;
 
     /**
