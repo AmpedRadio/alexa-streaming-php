@@ -4,7 +4,6 @@ namespace AmpedRadio\AlexaStreamingPHP;
 
 class AlexaStreamingConfig
 {
-
     public $app_id;
 
     public $title;
@@ -19,39 +18,38 @@ class AlexaStreamingConfig
 
     public $stream_token;
 
-    function getAppId()
+    public function getAppId()
     {
         return $this->app_id;
     }
 
-    function getTitle()
+    public function getTitle()
     {
         return $this->title;
     }
 
-    function getSubtitle()
+    public function getSubtitle()
     {
         return $this->subtitle;
     }
 
-    function getStreamUrl()
+    public function getStreamUrl()
     {
         return $this->stream_url;
     }
 
-    function getArt()
+    public function getArt()
     {
         return $this->art;
     }
 
-    function getBackgroundImage()
+    public function getBackgroundImage()
     {
         return $this->background_image;
     }
 
-    function getStreamToken()
+    public function getStreamToken()
     {
         return $this->stream_token;
     }
-
 }

@@ -50,7 +50,7 @@ class AlexaStreaming
                 // IntentRequests are direct requests for actions by the Alexa user.
                 // Examples: Play, Pause, Stop, etc.
                 $this->_processIntent($this->request);
-            } elseif(strpos($this->request->getType(), 'AudioPlayer.') !== false) {
+            } elseif (strpos($this->request->getType(), 'AudioPlayer.') !== false) {
                 // Requests of the AudioPlayer.* type can be considered event notifications
                 // and make us aware of changes to the playback state.
                 // Examples: PlaybackStarted, PlaybackStopped, PlaybackFailed
@@ -77,7 +77,7 @@ class AlexaStreaming
 
     /**
      * Validates the Alexa request
-     * 
+     *
      * @return bool
      */
     private function _validateRequest()
@@ -93,11 +93,12 @@ class AlexaStreaming
     /**
      * Process Intent
      *
-     * @param $request
+     * @throws \Exception
      */
-    private function _processIntent($request)
+    private function _processIntent(AlexaRequest $request)
     {
-        switch ($request->request->intent->name) {
+        $intent = $request->getIntent();
+        switch ($intent->name) {
             case 'PlayStream':
             case 'AMAZON.ResumeIntent':
                 $this->response->setDirectives([new AudioPlayerPlayDirective(
@@ -143,9 +144,9 @@ class AlexaStreaming
     /**
      * Process Audio Player Events
      *
-     * @param $request
+     * @param AlexaRequest $request
      */
-    private function _processAudioPlayerEvent($request)
+    private function _processAudioPlayerEvent(AlexaRequest $request)
     {
         /** @todo Log Player Events */
     }
