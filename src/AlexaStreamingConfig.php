@@ -18,6 +18,8 @@ class AlexaStreamingConfig
 
     public $stream_token;
 
+    public $launch_message;
+
     public function getAppId()
     {
         return $this->app_id;
@@ -51,5 +53,10 @@ class AlexaStreamingConfig
     public function getStreamToken()
     {
         return $this->stream_token;
+    }
+
+    public function getLaunchMessage()
+    {
+        return $this->launch_message;
     }
 }
