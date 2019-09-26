@@ -107,11 +107,12 @@ class AlexaStreaming
      */
     private function processLaunch()
     {
-        if($this->config->getLaunchMessage()) {
+        //if($this->config->getLaunchMessage()) {
             $speech = new OutputSpeech();
-            $speech->setText($this->config->getLaunchMessage());
+            //$speech->setText($this->config->getLaunchMessage());
+            $speech->setText("Thanks for listening");
             $this->response->setOutputSpeech($speech);
-        }
+        //}
         
         $this->response->setDirectives([new AudioPlayerPlayDirective(
             new AudioItem(
