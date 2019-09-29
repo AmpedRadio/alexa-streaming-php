@@ -50,6 +50,9 @@ class AlexaStreaming
 
     /**
      * Execute processing for Alexa Request and provide a response
+     *
+     * @return AlexaResponse
+     * @throws \Exception
      */
     public function execute()
     {
@@ -71,7 +74,7 @@ class AlexaStreaming
                 $this->setOutputSpeech("Sorry, we don't understand your request");
             }
         } else {
-            $this->setOutputSpeech("Sorry, something went wrong with your request");
+            throw new \Exception('Invalid Request.');
         }
 
         return $this->response;
@@ -107,13 +110,14 @@ class AlexaStreaming
      */
     private function processLaunch()
     {
-        //if($this->config->getLaunchMessage()) {
-            $speech = new OutputSpeech();
-            //$speech->setText($this->config->getLaunchMessage());
+        $speech = new OutputSpeech();
+        if($this->config->getLaunchMessage()) {
+            $speech->setText($this->config->getLaunchMessage());
+        } else {
             $speech->setText("Thanks for listening");
-            $this->response->setOutputSpeech($speech);
-        //}
-        
+        }
+        $this->response->setOutputSpeech($speech);
+
         $this->response->setDirectives([new AudioPlayerPlayDirective(
             new AudioItem(
                 new Stream($this->config),
