@@ -29,4 +29,3 @@ script:
   - composer run phpcs
   - composer run phpstan
   - composer run phpunit
-  - sonar-scanner
