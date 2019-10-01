@@ -1,8 +1,6 @@
 <?php declare(strict_types=1);
 
-
 namespace AmpedRadio\AlexaStreamingPHP\Test\DirectiveElements;
-
 
 use AmpedRadio\AlexaStreamingPHP\AlexaStreamingConfig;
 use AmpedRadio\AlexaStreamingPHP\DirectiveElements\AudioItem;
@@ -15,7 +13,7 @@ class AudioItemTest extends TestCase
     public function testAudioItem()
     {
         $stream = new Stream(new AlexaStreamingConfig());
-        $metadata =  new Metadata(new AlexaStreamingConfig());
+        $metadata = new Metadata(new AlexaStreamingConfig());
 
         $audioItem = new AudioItem($stream, $metadata);
 

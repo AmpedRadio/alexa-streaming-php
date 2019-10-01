@@ -1,8 +1,6 @@
 <?php declare(strict_types=1);
 
-
 namespace AmpedRadio\AlexaStreamingPHP\Test\DirectiveElements;
-
 
 use AmpedRadio\AlexaStreamingPHP\AlexaStreamingConfig;
 use AmpedRadio\AlexaStreamingPHP\DirectiveElements\Stream;

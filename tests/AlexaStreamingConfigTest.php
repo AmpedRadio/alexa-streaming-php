@@ -1,6 +1,5 @@
 <?php declare(strict_types=1);
 
-
 namespace AmpedRadio\AlexaStreamingPHP\Test;
 
 use AmpedRadio\AlexaStreamingPHP\AlexaStreamingConfig;
@@ -8,8 +7,6 @@ use PHPUnit\Framework\TestCase;
 
 class AlexaStreamingConfigTest extends TestCase
 {
-
-
     public function testGetAppId()
     {
         $value = 'unit_test_GetAppId';

@@ -1,8 +1,6 @@
 <?php declare(strict_types=1);
 
-
 namespace AmpedRadio\AlexaStreamingPHP\Test\DirectiveElements;
-
 
 use AmpedRadio\AlexaStreamingPHP\AlexaStreamingConfig;
 use AmpedRadio\AlexaStreamingPHP\DirectiveElements\Metadata;
@@ -21,8 +19,5 @@ class MetadataTest extends TestCase
         $metadata = new Metadata($alexaStreamingConfig);
         $this->assertSame($alexaStreamingConfig->subtitle, $metadata->subtitle);
         $this->assertSame($alexaStreamingConfig->title, $metadata->title);
-
-        $this->assertSame($alexaStreamingConfig->art ,$metadata->art->sources[0]->url);
-        $this->assertSame($alexaStreamingConfig->background_image ,$metadata->backgroundImage->sources[0]->url);
     }
 }
