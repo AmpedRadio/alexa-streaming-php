@@ -97,10 +97,7 @@ class AlexaStreaming
      */
     private function validateRequest()
     {
-        if (!$this->validator->validate($this->config->getAppId())) {
-            $this->is_valid_request = false;
-        }
-        $this->is_valid_request = true;
+        $this->is_valid_request = $this->validator->validate($this->config->getAppId());
 
         return $this->is_valid_request;
     }
