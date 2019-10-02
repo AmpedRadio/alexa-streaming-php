@@ -56,6 +56,4 @@ class AlexaStreamingTest extends TestCase
         $instance = new AlexaStreaming($this->configMock, false, $jsonRequest);
         $instance->execute();
     }
-
-
 }
