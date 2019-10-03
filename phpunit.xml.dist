@@ -7,7 +7,7 @@
 >
     <testsuites>
         <testsuite name="ampedradio/alexa-streaming-php test suite">
-            <directory>./tests</directory>
+            <directory suffix=".php">./tests</directory>
         </testsuite>
     </testsuites>
     <filter>
@@ -15,4 +15,7 @@
             <directory suffix=".php">./src</directory>
         </whitelist>
     </filter>
+    <logging>
+        <log type="coverage-clover" target="clover.xml"/>
+    </logging>
 </phpunit>

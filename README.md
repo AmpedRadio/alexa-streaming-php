@@ -1,6 +1,6 @@
 <p align="center">
 <a href="https://travis-ci.org/ampedradio/alexa-streaming-php"><img src="https://travis-ci.org/ampedradio/alexa-streaming-php.svg" alt="Build Status"></a>
-<a href="https://sonarcloud.io/dashboard?id=AmpedRadio_alexa-streaming-php"><img src="https://sonarcloud.io/api/project_badges/measure?project=AmpedRadio_alexa-streaming-php&metric=coverage" alt="Coverage"></a>
+<a href="https://codecov.io/gh/AmpedRadio/alexa-streaming-php"><img src="https://codecov.io/gh/AmpedRadio/alexa-streaming-php/branch/master/graph/badge.svg" /></a>
 <a href="https://packagist.org/packages/ampedradio/alexa-streaming-php"><img src="https://poser.pugx.org/ampedradio/alexa-streaming-php/v/stable.svg" alt="Latest Stable Version"></a>
 <a href="https://packagist.org/packages/ampedradio/alexa-streaming-php"><img src="https://poser.pugx.org/ampedradio/alexa-streaming-php/v/unstable.svg" alt="Latest Unstable Version"></a>
 <a href="https://packagist.org/packages/ampedradio/alexa-streaming-php"><img src="https://poser.pugx.org/ampedradio/alexa-streaming-php/license.svg" alt="License"></a>

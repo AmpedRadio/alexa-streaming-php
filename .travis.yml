@@ -16,17 +16,14 @@ before_install:
   - travis_retry composer self-update
 
 install:
-  - travis_retry composer install --no-interaction --prefer-dist
-
-addons:
-  sonarcloud:
-    organization: "ampedradio"
-    token:
-      secure: "bou3ik+6o3zi9kWVLW5fOc4Pvd7nSvTy2r4O2R33GbtAn5WRJs6Xbc3tRDxv6LtGH+bQQsIQsZjGYegS9oKMPFsuVGXaNdWD0c0hTq9IdIhpKH1cFH8Jy5XGUWmN+nGXUfcXHldP5B32DXxWzcnzm3MI0a36qBF/cSAoM0L7GV1vTgFYwZpkSsUxLW+OR+RcspY0Rgn4SmjaN9haI0mAGt5D6hOTwVCKd3GTCBswt/Dc9mFfrwXC6yyTyuCXrSJMzUHgmExo458DLd47xfnyQsqtk03M15UTy8fVHgH8lBdnzeaT3OTQgZ2e4124DwTQ8ps/ov8gpT0Akt4PbEmXIYLhR1V4t3xh2wQwqzj8dWR8Wv17BrpZHIaZDtk5EbAO2NWCUTYBPi/YMezmKpOjn1cCKG3jGq4gIh1hGPS0bCzFexkHYCKPxVV949H8hrUYEAXdJEcO0bcTAX+L4B4dPawvtgGOdy+QvCg4+xl+wz7VqKqBX7HpPM+ulXeFKL2IaS+9TR/UW8uigcSF8LCKKuAxvvznu8WYtrXgMaMDO5CcuYHxDNtz60xJIHyAxOTpJQrR3dwBNwXSXi4S72UdgzlgMKTTOtyAVkaUmmCcX5Howtbm4VgkBp63zSiY6fT1p8YgIjKrhUniu/0YCRzuQ2y98hddf0QWNHNuGlpdbSE="
+  - travis_retry composer install --no-interaction --prefer-dist --no-suggest
 
 script:
   - composer run lint
   - composer run phpcs
   - composer run phpstan
-  - composer run phpunit
-  - sonar-scanner
+  - composer run phpunit --coverage-clover=coverage.xml
+
+after_success:
+  # Submit coverage report to https://codecov.io
+  - bash <(curl -s https://codecov.io/bash)
