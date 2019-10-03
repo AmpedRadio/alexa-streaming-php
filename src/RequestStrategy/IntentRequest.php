@@ -3,11 +3,13 @@
 namespace AmpedRadio\AlexaStreamingPHP\RequestStrategy;
 
 use AmpedRadio\AlexaStreamingPHP\AlexaStreamingConfig;
+use AmpedRadio\AlexaStreamingPHP\DirectiveElements\AudioItem;
 use AmpedRadio\AlexaStreamingPHP\DirectiveElements\Metadata;
 use AmpedRadio\AlexaStreamingPHP\DirectiveElements\Stream;
 use AmpedRadio\AlexaStreamingPHP\Directives\AudioPlayerPlayDirective;
 use AmpedRadio\AlexaStreamingPHP\Directives\AudioPlayerStopDirective;
 use AmpedRadio\AlexaStreamingPHP\Exception\WrongIntentRequestException;
+use Exception;
 use Nomisoft\Alexa\Request\AlexaRequest;
 use Nomisoft\Alexa\Response\AlexaResponse;
 
@@ -21,14 +23,14 @@ use Nomisoft\Alexa\Response\AlexaResponse;
 class IntentRequest implements RequestStrategyInterface
 {
     /**
-     * @var \AmpedRadio\AlexaStreamingPHP\AlexaStreamingConfig
+     * @var AlexaStreamingConfig
      */
     private $config;
 
     /**
      * IntentRequest constructor.
      *
-     * @param \AmpedRadio\AlexaStreamingPHP\AlexaStreamingConfig $config
+     * @param AlexaStreamingConfig $config
      */
     public function __construct(AlexaStreamingConfig $config)
     {
@@ -38,11 +40,11 @@ class IntentRequest implements RequestStrategyInterface
     /**
      * Proceed a request and return response
      *
-     * @param \Nomisoft\Alexa\Request\AlexaRequest $request
+     * @param AlexaRequest $request
      *
-     * @return \Nomisoft\Alexa\Response\AlexaResponse
-     * @throws \AmpedRadio\AlexaStreamingPHP\Exception\WrongIntentRequestException
-     * @throws \Exception
+     * @return AlexaResponse
+     * @throws WrongIntentRequestException
+     * @throws Exception
      */
     public function proceed(AlexaRequest $request)
     {
@@ -53,7 +55,7 @@ class IntentRequest implements RequestStrategyInterface
             case 'AMAZON.ResumeIntent':
                 $response->setDirectives([
                     new AudioPlayerPlayDirective(
-                        new AudioIte    (
+                        new AudioItem(
                             new Stream($this->config),
                             new Metadata($this->config)
                         )

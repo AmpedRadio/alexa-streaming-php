@@ -21,9 +21,14 @@ use Nomisoft\Alexa\Response\OutputSpeech;
 class LaunchRequest implements RequestStrategyInterface
 {
     /**
+     * @var AlexaStreamingConfig
+     */
+    private $config;
+
+    /**
      * IntentRequest constructor.
      *
-     * @param \AmpedRadio\AlexaStreamingPHP\AlexaStreamingConfig $config
+     * @param AlexaStreamingConfig $config
      */
     public function __construct(AlexaStreamingConfig $config)
     {
@@ -33,9 +38,9 @@ class LaunchRequest implements RequestStrategyInterface
     /**
      * Proceed a request and return response
      *
-     * @param \Nomisoft\Alexa\Request\AlexaRequest $request
+     * @param AlexaRequest $request
      *
-     * @return \Nomisoft\Alexa\Response\AlexaResponse
+     * @return AlexaResponse
      */
     public function proceed(AlexaRequest $request)
     {

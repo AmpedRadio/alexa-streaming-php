@@ -31,32 +31,37 @@ class AlexaRequestManager
      * @var AlexaRequest
      */
     private $request;
+    /**
+     * @var null
+     */
+    private $validator;
 
     /**
      * AlexaRequestManager constructor.
      *
      * @param AlexaStreamingConfig $config
      * @param AlexaRequest $request
+     * @param null $validator
      */
     public function __construct(
         AlexaStreamingConfig $config,
-        AlexaRequest $request
+        AlexaRequest $request,
+        $validator = null //@TODO : use DI
     ) {
         $this->config = $config;
         $this->request = $request;
+        $this->validator = $validator ?: new RequestValidator($this->request);
     }
 
     /**
      * Validate and proceed request
-     *
      *
      * @throws RequestValidationException
      * @throws Exception
      */
     public function proceedRequest()
     {
-        $validator = new RequestValidator($this->request);
-        if (!$validator->validate($this->config->getAppId())) {
+        if (!$this->validator->validate($this->config->getAppId())) {
             throw new RequestValidationException('Invalid Request.');
         }
 
