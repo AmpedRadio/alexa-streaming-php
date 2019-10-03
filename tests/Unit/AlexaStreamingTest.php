@@ -44,7 +44,7 @@ class AlexaStreamingTest extends TestCase
         $this->expectException('Exception');
         $this->expectExceptionMessage('Invalid Request.');
 
-        $jsonRequest = json_encode([
+        $jsonRequest = (string) json_encode([
             'request' => [
                 'timestamp' => '+1day'
             ]
