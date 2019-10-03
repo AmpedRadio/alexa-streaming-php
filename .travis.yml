@@ -22,7 +22,7 @@ script:
   - composer run lint
   - composer run phpcs
   - composer run phpstan
-  - composer run phpunit --coverage-clover=coverage.xml
+  - php vendor/bin/phpunit --coverage-clover=coverage.xml
 
 after_success:
   # Submit coverage report to https://codecov.io
