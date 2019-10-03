@@ -2,6 +2,7 @@
 
 namespace AmpedRadio\AlexaStreamingPHP;
 
+use Exception;
 use \Nomisoft\Alexa\Request\AlexaRequest;
 use \Nomisoft\Alexa\Response\AlexaResponse;
 use Nomisoft\Alexa\Response\OutputSpeech;
@@ -12,7 +13,7 @@ use Nomisoft\Alexa\Response\OutputSpeech;
 class AlexaStreaming
 {
     /**
-     * @var \AmpedRadio\AlexaStreamingPHP\AlexaRequestManager
+     * @var AlexaRequestManager
      */
     private $requestManager;
 
@@ -22,7 +23,7 @@ class AlexaStreaming
      * @param AlexaStreamingConfig $config
      * @param bool $from_request
      * @param string|null $json
-     * @throws \Exception
+     * @throws Exception
      */
     public function __construct(AlexaStreamingConfig $config, bool $from_request = true, string $json = null)
     {
@@ -34,13 +35,13 @@ class AlexaStreaming
     /**
      * Execute processing for Alexa Request and provide a response
      *
-     * @return \Nomisoft\Alexa\Response\AlexaResponse
+     * @return AlexaResponse
      */
     public function execute()
     {
         try {
             return $this->requestManager->proceedRequest();
-        } catch(\Exception $e) {
+        } catch(Exception $e) {
             return $this->setOutputSpeech($e->getMessage());
         }
     }
@@ -50,7 +51,7 @@ class AlexaStreaming
      *
      * @param string $message
      *
-     * @return \Nomisoft\Alexa\Response\AlexaResponse
+     * @return AlexaResponse
      */
     private function setOutputSpeech(string $message)
     {

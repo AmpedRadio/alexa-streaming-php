@@ -7,6 +7,7 @@ use AmpedRadio\AlexaStreamingPHP\Exception\RequestValidationException;
 use AmpedRadio\AlexaStreamingPHP\RequestStrategy\AudioPlayerRequest;
 use AmpedRadio\AlexaStreamingPHP\RequestStrategy\IntentRequest;
 use AmpedRadio\AlexaStreamingPHP\RequestStrategy\LaunchRequest;
+use Exception;
 use \Nomisoft\Alexa\Request\AlexaRequest;
 use \Nomisoft\Alexa\Request\RequestValidator;
 
@@ -23,19 +24,19 @@ class AlexaRequestManager
     const AUDIO_PLAYER_REQUEST = 'AudioPlayer.';
 
     /**
-     * @var \AmpedRadio\AlexaStreamingPHP\AlexaStreamingConfig
+     * @var AlexaStreamingConfig
      */
     private $config;
     /**
-     * @var \Nomisoft\Alexa\Request\AlexaRequest
+     * @var AlexaRequest
      */
     private $request;
 
     /**
      * AlexaRequestManager constructor.
      *
-     * @param \AmpedRadio\AlexaStreamingPHP\AlexaStreamingConfig $config
-     * @param \Nomisoft\Alexa\Request\AlexaRequest $request
+     * @param AlexaStreamingConfig $config
+     * @param AlexaRequest $request
      */
     public function __construct(
         AlexaStreamingConfig $config,
@@ -49,8 +50,8 @@ class AlexaRequestManager
      * Validate and proceed request
      *
      *
-     * @throws \AmpedRadio\AlexaStreamingPHP\Exception\RequestValidationException
-     * @throws \Exception
+     * @throws RequestValidationException
+     * @throws Exception
      */
     public function proceedRequest()
     {
@@ -60,15 +61,15 @@ class AlexaRequestManager
         }
 
         if ($this->request->getType() === self::LAUNCH_REQUEST) {
-            $requestDeterminator = new LaunchRequest($this->config);
+            $requestStrategy = new LaunchRequest($this->config);
         } elseif ($this->request->getType() === self::INTENT_REQUEST) {
-            $requestDeterminator = new IntentRequest($this->config);
+            $requestStrategy = new IntentRequest($this->config);
         } elseif (strpos($this->request->getType(), self::AUDIO_PLAYER_REQUEST) !== false) {
-            $requestDeterminator = new AudioPlayerRequest();
+            $requestStrategy = new AudioPlayerRequest();
         } else {
             throw new IndeterminateRequestException('Sorry, we don\'t understand your request');
         }
 
-        return $requestDeterminator->proceed($this->request);
+        return $requestStrategy->proceed($this->request);
     }
 }
