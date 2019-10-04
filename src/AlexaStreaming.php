@@ -41,7 +41,7 @@ class AlexaStreaming
     {
         try {
             return $this->requestManager->proceedRequest();
-        } catch(Exception $e) {
+        } catch (Exception $e) {
             return $this->setOutputSpeech($e->getMessage());
         }
     }
