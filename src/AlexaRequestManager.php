@@ -50,7 +50,7 @@ class AlexaRequestManager
     ) {
         $this->config = $config;
         $this->request = $request;
-        $this->validator = $validator ?: new RequestValidator($this->request);
+        $this->validator = $validator ?? new RequestValidator($this->request);
     }
 
     /**
