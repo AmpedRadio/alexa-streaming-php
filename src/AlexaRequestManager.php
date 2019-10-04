@@ -32,7 +32,7 @@ class AlexaRequestManager
      */
     private $request;
     /**
-     * @var null
+     * @var RequestValidator
      */
     private $validator;
 
