@@ -1,5 +1,7 @@
 <?php
 
+namespace AmpedRadio\AlexaStreamingPHP\Test\Directives;
+
 use AmpedRadio\AlexaStreamingPHP\AlexaStreamingConfig;
 use AmpedRadio\AlexaStreamingPHP\DirectiveElements\AudioItem;
 use AmpedRadio\AlexaStreamingPHP\DirectiveElements\Metadata;
