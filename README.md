@@ -1,4 +1,8 @@
 <p align="center">
+    <img width="400" height="140" src="https://raw.githubusercontent.com/AmpedRadio/alexa-streaming-php/master/art/logo.png" alt="Alexa Streaming in PHP logo" />
+</p>
+
+<p align="center">
 <a href="https://travis-ci.org/ampedradio/alexa-streaming-php"><img src="https://travis-ci.org/ampedradio/alexa-streaming-php.svg" alt="Build Status"></a>
 <a href="https://codecov.io/gh/AmpedRadio/alexa-streaming-php"><img src="https://codecov.io/gh/AmpedRadio/alexa-streaming-php/branch/master/graph/badge.svg" /></a>
 <a href="https://packagist.org/packages/ampedradio/alexa-streaming-php"><img src="https://poser.pugx.org/ampedradio/alexa-streaming-php/v/stable.svg" alt="Latest Stable Version"></a>
@@ -6,9 +10,9 @@
 <a href="https://packagist.org/packages/ampedradio/alexa-streaming-php"><img src="https://poser.pugx.org/ampedradio/alexa-streaming-php/license.svg" alt="License"></a>
 </p>
 
-# Alexa Streaming in PHP 
+# Alexa Streaming in PHP
 
-This library provides a simple way to create a streaming audio skill for the [Amazon Alexa](http://developer.amazon.com/alexa) platform. 
+This library provides a simple way to create a streaming audio skill for the [Amazon Alexa](http://developer.amazon.com/alexa) platform.
 
 ## Installation
 
@@ -44,3 +48,8 @@ $response = $alexa->execute();
 header('Content-Type: application/json');
 echo json_encode($response);
 ```
+
+## Credits
+
+- Created by [Bill Condo](https://twitter.com/mavrck)
+- Logo by [Caneco](https://twitter.com/caneco)
