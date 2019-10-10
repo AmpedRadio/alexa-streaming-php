@@ -20,6 +20,7 @@ class AudioPlayerPlayDirectiveTest extends TestCase
         $audioItem = new AudioItem($stream, $metadata);
         $playDirective = new AudioPlayerPlayDirective($audioItem, $behavior);
 
+        $this->assertSame('AudioPlayer.Play', $playDirective->getType());
         $this->assertSame($stream, $playDirective->getAudioItem()->stream);
         $this->assertSame($metadata, $playDirective->getAudioItem()->metadata);
         $this->assertSame($behavior, $playDirective->getPlayBehavior());
