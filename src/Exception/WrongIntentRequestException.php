@@ -3,9 +3,7 @@
 namespace AmpedRadio\AlexaStreamingPHP\Exception;
 
 /**
- * Class WrongIntentRequestException
- *
- * @package AmpedRadio\AlexaStreamingPHP\Exception
+ * Class WrongIntentRequestException.
  */
 class WrongIntentRequestException extends \Exception
 {

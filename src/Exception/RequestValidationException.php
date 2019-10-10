@@ -3,9 +3,7 @@
 namespace AmpedRadio\AlexaStreamingPHP\Exception;
 
 /**
- * Class RequestValidationException
- *
- * @package AmpedRadio\AlexaStreamingPHP\Exception
+ * Class RequestValidationException.
  */
 class RequestValidationException extends \Exception
 {

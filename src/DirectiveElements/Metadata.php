@@ -5,7 +5,7 @@ namespace AmpedRadio\AlexaStreamingPHP\DirectiveElements;
 use AmpedRadio\AlexaStreamingPHP\AlexaStreamingConfig;
 
 /**
- * Metadata
+ * Metadata.
  *
  * The Metadata object is found as a child item inside of an AudioItem object. The purpose is
  * to transmit the text and images for a given audio item. In the context of a stream, this
@@ -56,16 +56,16 @@ class Metadata
         $this->art = (object) [
             'sources' => [
                 (object) [
-                    'url' => $config->art
-                ]
-            ]
+                    'url' => $config->art,
+                ],
+            ],
         ];
         $this->backgroundImage = (object) [
             'sources' => [
                 (object) [
-                    'url' => $config->background_image
-                ]
-            ]
+                    'url' => $config->background_image,
+                ],
+            ],
         ];
     }
 }

@@ -6,14 +6,12 @@ use Nomisoft\Alexa\Request\AlexaRequest;
 
 /**
  * Interface RequestStrategyInterface
- * Interface contract for request processing
- *
- * @package AmpedRadio\AlexaStreamingPHP\RequestStrategy
+ * Interface contract for request processing.
  */
 interface RequestStrategyInterface
 {
     /**
-     * Proceed a request and return response
+     * Proceed a request and return response.
      *
      * @param \Nomisoft\Alexa\Request\AlexaRequest $request
      *
