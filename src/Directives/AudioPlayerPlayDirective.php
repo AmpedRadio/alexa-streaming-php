@@ -50,10 +50,31 @@ class AudioPlayerPlayDirective implements AudioPlayerDirectiveInterface
 
     /**
      * Get Directive Type
+     *
      * @return string
      */
     public function getType(): string
     {
         return $this->type;
+    }
+
+    /**
+     * Get Audio Item
+     *
+     * @return AudioItem
+     */
+    public function getAudioItem(): AudioItem
+    {
+        return $this->audioItem;
+    }
+
+    /**
+     * Get Play Behavior
+     *
+     * @return string
+     */
+    public function getPlayBehavior(): string
+    {
+        return $this->playBehavior;
     }
 }
