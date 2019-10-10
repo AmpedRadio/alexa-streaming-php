@@ -3,9 +3,7 @@
 namespace AmpedRadio\AlexaStreamingPHP\DirectiveElements;
 
 /**
- * AudioItem
- *
- *
+ * AudioItem.
  */
 class AudioItem
 {
@@ -18,7 +16,7 @@ class AudioItem
     /**
      * AudioItem constructor.
      *
-     * @param Stream $stream
+     * @param Stream   $stream
      * @param Metadata $metadata
      */
     public function __construct(Stream $stream, Metadata $metadata)

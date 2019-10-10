@@ -6,7 +6,7 @@ use AmpedRadio\AlexaStreamingPHP\DirectiveElements\AudioItem;
 use AmpedRadio\AlexaStreamingPHP\Interfaces\AudioPlayerDirectiveInterface;
 
 /**
- * AudioPlayerPlayDirective
+ * AudioPlayerPlayDirective.
  *
  * Sends Alexa a command to stream the audio file identified by the specified audioItem. Use the
  * playBehavior parameter to determine whether the stream begins playing immediately, or is added
@@ -33,14 +33,14 @@ class AudioPlayerPlayDirective implements AudioPlayerDirectiveInterface
     private $playBehaviors = [
         'REPLACE_ALL',      // Immediately Plays
         'REPLACE_ENQUEUED', // Plays after the current track ends
-        'ENQUEUE'           // Add to the end of the queue
+        'ENQUEUE',           // Add to the end of the queue
     ];
 
     /**
      * AudioPlayerPlayDirective constructor.
      *
      * @param AudioItem $audioItem
-     * @param string $playBehavior
+     * @param string    $playBehavior
      */
     public function __construct(AudioItem $audioItem, string $playBehavior = 'REPLACE_ALL')
     {
@@ -49,7 +49,7 @@ class AudioPlayerPlayDirective implements AudioPlayerDirectiveInterface
     }
 
     /**
-     * Get Directive Type
+     * Get Directive Type.
      *
      * @return string
      */
@@ -59,7 +59,7 @@ class AudioPlayerPlayDirective implements AudioPlayerDirectiveInterface
     }
 
     /**
-     * Get Audio Item
+     * Get Audio Item.
      *
      * @return AudioItem
      */
@@ -69,7 +69,7 @@ class AudioPlayerPlayDirective implements AudioPlayerDirectiveInterface
     }
 
     /**
-     * Get Play Behavior
+     * Get Play Behavior.
      *
      * @return string
      */
