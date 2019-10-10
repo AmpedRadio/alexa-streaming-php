@@ -39,10 +39,21 @@ class AudioPlayerClearQueueDirective implements AudioPlayerDirectiveInterface
 
     /**
      * Get Directive Type
+     *
      * @return string
      */
     public function getType(): string
     {
         return $this->type;
+    }
+
+    /**
+     * Get Clear Behavior
+     *
+     * @return string
+     */
+    public function getClearBehavior()
+    {
+        return $this->clearBehavior;
     }
 }
