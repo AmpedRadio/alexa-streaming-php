@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-<a href="https://travis-ci.org/ampedradio/alexa-streaming-php"><img src="https://travis-ci.org/ampedradio/alexa-streaming-php.svg" alt="Build Status"></a>
+<a href="https://github.com/AmpedRadio/alexa-streaming-php/actions"><img src="https://github.com/AmpedRadio/alexa-streaming-php/workflows/Tests/badge.svg" alt="Build Status"></a>
 <a href="https://codecov.io/gh/AmpedRadio/alexa-streaming-php"><img src="https://codecov.io/gh/AmpedRadio/alexa-streaming-php/branch/master/graph/badge.svg" /></a>
 <a href="https://packagist.org/packages/ampedradio/alexa-streaming-php"><img src="https://poser.pugx.org/ampedradio/alexa-streaming-php/v/stable.svg" alt="Latest Stable Version"></a>
 <a href="https://packagist.org/packages/ampedradio/alexa-streaming-php"><img src="https://poser.pugx.org/ampedradio/alexa-streaming-php/v/unstable.svg" alt="Latest Unstable Version"></a>
