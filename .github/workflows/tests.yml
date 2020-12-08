@@ -32,7 +32,7 @@ jobs:
       - name: Install dependencies
         run: composer update --${{ matrix.stability }} --prefer-dist --no-interaction --no-progress
 
-      - name: Run PHP CS Fixer
+      - name: Run PHP Parallel Lint
         run: composer run lint
 
       - name: Run PHP CS Fixer
