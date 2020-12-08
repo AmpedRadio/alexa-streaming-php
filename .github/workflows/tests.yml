@@ -41,8 +41,8 @@ jobs:
           composer require friendsofphp/php-cs-fixer:^2.15 --dev --prefer-dist --no-interaction --no-progress --update-with-all-dependencies
           composer run phpcs
 
-      - name: Run PHPStan
-        run: composer run phpstan
+#      - name: Run PHPStan
+#        run: composer run phpstan
 
       - name: Execute tests
         run: vendor/bin/phpunit --verbose --coverage-text --coverage-clover=coverage.clover
