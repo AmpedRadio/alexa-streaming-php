@@ -17,8 +17,6 @@ use Nomisoft\Alexa\Response\AlexaResponse;
  * Class IntentRequest
  * IntentRequests are direct requests for actions by the Alexa user.
  * Examples: Play, Pause, Stop, etc.
- *
- * @package AmpedRadio\AlexaStreamingPHP\RequestStrategy
  */
 class IntentRequest implements RequestStrategyInterface
 {
@@ -38,13 +36,14 @@ class IntentRequest implements RequestStrategyInterface
     }
 
     /**
-     * Proceed a request and return response
+     * Proceed a request and return response.
      *
      * @param AlexaRequest $request
      *
-     * @return AlexaResponse
      * @throws WrongIntentRequestException
      * @throws Exception
+     *
+     * @return AlexaResponse
      */
     public function proceed(AlexaRequest $request)
     {
@@ -59,7 +58,7 @@ class IntentRequest implements RequestStrategyInterface
                             new Stream($this->config),
                             new Metadata($this->config)
                         )
-                    )]);
+                    ), ]);
                 break;
             case 'AMAZON.PauseIntent':
             case 'AMAZON.StopIntent':

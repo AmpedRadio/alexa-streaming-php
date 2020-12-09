@@ -5,11 +5,9 @@ namespace AmpedRadio\AlexaStreamingPHP\Directives;
 use AmpedRadio\AlexaStreamingPHP\Interfaces\AudioPlayerDirectiveInterface;
 
 /**
- * AudioPlayerStopDirective
+ * AudioPlayerStopDirective.
  *
  * Stops the current audio playback.
- *
- * @package AmpedRadio\AlexaStreamingPHP
  */
 class AudioPlayerStopDirective implements AudioPlayerDirectiveInterface
 {
@@ -17,7 +15,8 @@ class AudioPlayerStopDirective implements AudioPlayerDirectiveInterface
     public $type = 'AudioPlayer.Stop';
 
     /**
-     * Get Directive Type
+     * Get Directive Type.
+     *
      * @return string
      */
     public function getType(): string
