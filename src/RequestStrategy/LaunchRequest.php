@@ -15,8 +15,6 @@ use Nomisoft\Alexa\Response\OutputSpeech;
  * Class LaunchRequest
  * A LaunchRequest is an object that represents that a user made a request
  * to an Alexa skill, but did not provide a specific intent.
- *
- * @package AmpedRadio\AlexaStreamingPHP\RequestStrategy
  */
 class LaunchRequest implements RequestStrategyInterface
 {
@@ -36,7 +34,7 @@ class LaunchRequest implements RequestStrategyInterface
     }
 
     /**
-     * Proceed a request and return response
+     * Proceed a request and return response.
      *
      * @param AlexaRequest $request
      *
@@ -57,7 +55,7 @@ class LaunchRequest implements RequestStrategyInterface
                     new Stream($this->config),
                     new Metadata($this->config)
                 )
-            )]);
+            ), ]);
 
         return $response;
     }

@@ -36,7 +36,7 @@ class AlexaRequestManagerTest extends TestCase
     }
 
     /**
-     * Check if Alexa Request Manager instance throw an exception on an invalid JSON request
+     * Check if Alexa Request Manager instance throw an exception on an invalid JSON request.
      */
     public function testShouldThrowExceptionOnInvalidRequest()
     {
@@ -45,8 +45,8 @@ class AlexaRequestManagerTest extends TestCase
 
         $jsonRequest = json_encode([
             'request' => [
-                'timestamp' => '+1day'
-            ]
+                'timestamp' => '+1day',
+            ],
         ]);
 
         $this->configMock->method('getAppId')
@@ -65,7 +65,7 @@ class AlexaRequestManagerTest extends TestCase
     }
 
     /**
-     * Check if Alexa Request Manager instance for launch request return expected response
+     * Check if Alexa Request Manager instance for launch request return expected response.
      */
     public function testShouldLaunchRequestReturnExpectedResponse()
     {
@@ -76,13 +76,13 @@ class AlexaRequestManagerTest extends TestCase
                     new Stream($this->configMock),
                     new Metadata($this->configMock)
                 )
-            )]);
+            ), ]);
 
         $jsonRequest = json_encode([
             'request' => [
                 'timestamp' => 'now',
-                'type' => AlexaRequestManager::LAUNCH_REQUEST
-            ]
+                'type'      => AlexaRequestManager::LAUNCH_REQUEST,
+            ],
         ]);
 
         $this->configMock->method('getAppId')
@@ -102,7 +102,7 @@ class AlexaRequestManagerTest extends TestCase
     }
 
     /**
-     * Check if Alexa Request Manager instance for launch request return expected response
+     * Check if Alexa Request Manager instance for launch request return expected response.
      */
     public function testShouldIntentRequestReturnExpectedResponse()
     {
@@ -113,14 +113,14 @@ class AlexaRequestManagerTest extends TestCase
                     new Stream($this->configMock),
                     new Metadata($this->configMock)
                 )
-            )]);
+            ), ]);
 
         $jsonRequest = json_encode([
             'request' => [
                 'timestamp' => 'now',
-                'type' => AlexaRequestManager::INTENT_REQUEST,
-                'intent' => 'PlayStream'
-            ]
+                'type'      => AlexaRequestManager::INTENT_REQUEST,
+                'intent'    => 'PlayStream',
+            ],
         ]);
 
         $this->configMock->method('getAppId')

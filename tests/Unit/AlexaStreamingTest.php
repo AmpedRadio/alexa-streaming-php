@@ -19,7 +19,7 @@ class AlexaStreamingTest extends TestCase
     }
 
     /**
-     * Check if Alexa streaming instance throw an exception on an invalid JSON request
+     * Check if Alexa streaming instance throw an exception on an invalid JSON request.
      */
     public function testShouldThrowExceptionOnInvalidJsonRequest()
     {

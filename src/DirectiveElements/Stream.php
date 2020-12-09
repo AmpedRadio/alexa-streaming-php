@@ -5,7 +5,7 @@ namespace AmpedRadio\AlexaStreamingPHP\DirectiveElements;
 use AmpedRadio\AlexaStreamingPHP\AlexaStreamingConfig;
 
 /**
- * Stream
+ * Stream.
  *
  * The Stream object is found as a child item inside of an AudioItem object. It is used in a
  * limited capacity in this project as we're only supporting a basic streaming setup. More
@@ -24,13 +24,13 @@ use AmpedRadio\AlexaStreamingPHP\AlexaStreamingConfig;
  */
 class Stream
 {
-    /** @var string $url */
+    /** @var string */
     public $url;
 
-    /** @var string $token */
+    /** @var string */
     public $token;
 
-    /** @var int $offsetInMilliseconds */
+    /** @var int */
     public $offsetInMilliseconds;
 
     /**

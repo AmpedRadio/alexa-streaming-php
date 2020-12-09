@@ -8,14 +8,12 @@ use AmpedRadio\AlexaStreamingPHP\RequestStrategy\AudioPlayerRequest;
 use AmpedRadio\AlexaStreamingPHP\RequestStrategy\IntentRequest;
 use AmpedRadio\AlexaStreamingPHP\RequestStrategy\LaunchRequest;
 use Exception;
-use \Nomisoft\Alexa\Request\AlexaRequest;
-use \Nomisoft\Alexa\Request\RequestValidator;
+use Nomisoft\Alexa\Request\AlexaRequest;
+use Nomisoft\Alexa\Request\RequestValidator;
 
 /**
  * Class AlexaRequestManager
- * Validate and proceed Alexa request
- *
- * @package AmpedRadio\AlexaStreamingPHP
+ * Validate and proceed Alexa request.
  */
 class AlexaRequestManager
 {
@@ -40,8 +38,8 @@ class AlexaRequestManager
      * AlexaRequestManager constructor.
      *
      * @param AlexaStreamingConfig $config
-     * @param AlexaRequest $request
-     * @param null $validator
+     * @param AlexaRequest         $request
+     * @param null                 $validator
      */
     public function __construct(
         AlexaStreamingConfig $config,
@@ -54,7 +52,7 @@ class AlexaRequestManager
     }
 
     /**
-     * Validate and proceed request
+     * Validate and proceed request.
      *
      * @throws RequestValidationException
      * @throws Exception
