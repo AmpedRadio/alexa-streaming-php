@@ -47,10 +47,10 @@ class AlexaStreaming
     public function isValidRequest(string $signatureCertChainUrl, string $signature): bool
     {
         $validator = new AlexaRequestValidator(
-        $this->requestManager->getRequest()->getApplicationId(),
-        $this->requestManager->getRequest()->getJson(),
-        $signatureCertChainUrl,
-        $signature
+            $this->requestManager->getRequest()->getApplicationId(),
+            $this->requestManager->getRequest()->getJson(),
+            $signatureCertChainUrl,
+            $signature
         );
 
         return $validator->validateRequest();
