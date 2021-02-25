@@ -14,6 +14,11 @@ use Nomisoft\Alexa\Response\OutputSpeech;
 class AlexaStreaming
 {
     /**
+     * @var AlexaStreamingConfig
+     */
+    private $config;
+
+    /**
      * @var AlexaRequestManager
      */
     private $requestManager;
@@ -29,6 +34,7 @@ class AlexaStreaming
      */
     public function __construct(AlexaStreamingConfig $config, bool $from_request = true, string $json = null)
     {
+        $this->config = $config;
         $request = ($from_request) ? AlexaRequest::fromRequest() : new AlexaRequest($json);
 
         $this->requestManager = new AlexaRequestManager($config, $request);
@@ -47,7 +53,7 @@ class AlexaStreaming
     public function isValidRequest(string $signatureCertChainUrl, string $signature): bool
     {
         $validator = new AlexaRequestValidator(
-            $this->requestManager->getRequest()->getApplicationId(),
+            $this->config->app_id,
             $this->requestManager->getRequest()->getJson(),
             $signatureCertChainUrl,
             $signature
