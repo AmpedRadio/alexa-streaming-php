@@ -59,10 +59,6 @@ class AlexaRequestManager
      */
     public function proceedRequest()
     {
-        if (!$this->validator->validate($this->config->getAppId())) {
-            throw new RequestValidationException('Invalid Request.');
-        }
-
         if ($this->request->getType() === self::LAUNCH_REQUEST) {
             $requestStrategy = new LaunchRequest($this->config);
         } elseif ($this->request->getType() === self::INTENT_REQUEST) {
