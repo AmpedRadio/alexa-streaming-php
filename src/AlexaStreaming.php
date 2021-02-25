@@ -40,9 +40,9 @@ class AlexaStreaming
      * @param string $signatureCertChainUrl
      * @param string $signature
      *
-     * @return bool
-     *
      * @throws \Humps\AlexaRequest\Exceptions\AlexaValidationException
+     *
+     * @return bool
      */
     public function isValidRequest(string $signatureCertChainUrl, string $signature): bool
     {
@@ -52,7 +52,7 @@ class AlexaStreaming
             $signatureCertChainUrl,
             $signature);
 
-        return ($validator->validateRequest());
+        return $validator->validateRequest();
     }
 
     /**
