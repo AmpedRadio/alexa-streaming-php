@@ -3,7 +3,8 @@
 namespace AmpedRadio\AlexaStreamingPHP;
 
 use Exception;
-use Humps\AlexaRequest\AlexaRequestValidator;
+use MaxBeckers\AmazonAlexa\Request\Request;
+use MaxBeckers\AmazonAlexa\Validation\RequestValidator;
 use Nomisoft\Alexa\Request\AlexaRequest;
 use Nomisoft\Alexa\Response\AlexaResponse;
 use Nomisoft\Alexa\Response\OutputSpeech;
@@ -46,20 +47,23 @@ class AlexaStreaming
      * @param string $signatureCertChainUrl
      * @param string $signature
      *
-     * @throws \Humps\AlexaRequest\Exceptions\AlexaValidationException
-     *
      * @return bool
      */
     public function isValidRequest(string $signatureCertChainUrl, string $signature): bool
     {
-        $validator = new AlexaRequestValidator(
-            $this->config->app_id,
-            $this->requestManager->getRequest()->getJson(),
-            $signatureCertChainUrl,
-            $signature
-        );
+        try {
+            $request = Request::fromAmazonRequest(
+                $this->requestManager->getRequest()->getJson(),
+                $signatureCertChainUrl,
+                $signature
+            );
 
-        return $validator->validateRequest();
+            (new RequestValidator)->validate($request);
+        } catch(Exception $e) {
+            return false;
+        }
+
+        return true;
     }
 
     /**
