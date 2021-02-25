@@ -15,9 +15,10 @@
     "require": {
         "php": "^7.2|^8.0",
         "ext-json": "*",
-        "vlucas/phpdotenv": "^3.6",
+        "craigh/alexa-request-validator": "^1.0",
         "nomisoft/php-alexa-helper": "^1.2",
-        "ramsey/uuid": "^3.8"
+        "ramsey/uuid": "^3.8",
+        "vlucas/phpdotenv": "^3.6"
     },
     "require-dev": {
         "php-parallel-lint/php-parallel-lint": "^1.2",

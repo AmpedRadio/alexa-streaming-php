@@ -75,4 +75,14 @@ class AlexaRequestManager
 
         return $requestStrategy->proceed($this->request);
     }
+
+    /**
+     * Get Alexa Request.
+     *
+     * @return AlexaRequest
+     */
+    public function getRequest(): AlexaRequest
+    {
+        return $this->request;
+    }
 }
