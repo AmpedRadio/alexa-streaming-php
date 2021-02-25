@@ -15,7 +15,7 @@
     "require": {
         "php": "^7.2|^8.0",
         "ext-json": "*",
-        "craigh/alexa-request-validator": "^1.0",
+        "craigh/alexa-request-validator": "dev-master#376d160613e6e660c0bfa943fa5202f7c283e679",
         "nomisoft/php-alexa-helper": "^1.2",
         "ramsey/uuid": "^3.8",
         "vlucas/phpdotenv": "^3.6"
